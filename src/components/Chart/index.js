@@ -19,7 +19,7 @@ class Chart extends React.Component {
   }
 
   renderOctave(notes=[], i, fingerOffset) {
-    return <ul className="set">
+    return <ul className="set" key={ `octave-${i}` }>
       { OCTAVE.map((k) => {
         let className = `${styles[k]} ${((k.length > 1)) ? styles.black : styles.white }`,
             finger = notes.indexOf(k),

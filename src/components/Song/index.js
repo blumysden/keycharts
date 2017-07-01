@@ -12,10 +12,15 @@ const CHORDS = [
 
 class Song extends React.Component {
 
+  componentDidMount() {
+    
+  }
+
   render () {
+    console.log(this.props);
     return <div className={ styles.song }>
-      { CHORDS.map((c) => {
-        return <Chart name={ c.name } keys={ c.keys } />
+      { CHORDS.map((c, i) => {
+        return <Chart name={ c.name } keys={ c.keys } key={ `song-chord-${i}`} />
       }) }
     </div>
   }

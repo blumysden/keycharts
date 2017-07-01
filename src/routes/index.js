@@ -19,7 +19,7 @@ const importSong = (nextState, cb) => {
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute getComponent={importSong} />
-    <Route path="chart" getComponent={importSong} />
+    <Route path="song/:id" getComponent={importSong} />
   </Route>
 );
 
