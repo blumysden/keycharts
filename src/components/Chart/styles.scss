@@ -1,13 +1,19 @@
 @import '../../shared-styles/variables';
 
+$keywidth: 2em;
+$keymargin: (0-$keywidth/4);
+
 .octave {
   * {
     box-sizing: border-box;
   }
 
   ul {
-    height: 18.875em;
-    width: 34em;
+    display: inline-block;
+    // height: 18.875em;
+    height: $keywidth * 4.7185;
+    margin-left: $keywidth/4;
+    // width: 34em;
     // margin: 5em auto;
     // padding: 3em 0 0 3em;
     position: relative;
@@ -15,6 +21,10 @@
     // border-radius: 1em;
     // background: -webkit-gradient(linear, right bottom, left top, color-stop(0%,rgba(0,0,0,0.3)), color-stop(100%,rgba(0,0,0,0))), url('http://f.cl.ly/items/2q1f3t0C3R1b0g081w3n/vwood.png');
     // box-shadow: 0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5);
+  }
+
+  ul:first-of-type {
+    margin-left: 0;
   }
 
   li {
@@ -47,8 +57,8 @@
   }
 
   ul .white {
-    height: 16em;
-    width: 4em;
+    height: $keywidth * 4;
+    width: $keywidth;
     z-index: 1;
     border-left: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
@@ -66,9 +76,9 @@
   }
 
   .black {
-    height: 8em;
-    width: 2em;
-    margin: 0 0 0 -1em;
+    height: $keywidth * 2;
+    width: $keywidth / 2;
+    margin: 0 0 0 $keymargin;
     z-index: 2;
     border: 1px solid #000;
     border-radius: 0 0 3px 3px;
@@ -87,7 +97,7 @@
   .e,
   .f,
   .g {
-    margin: 0 0 0 -1em;
+    margin: 0 0 0 $keymargin;
   }
 
   ul li:first-child {

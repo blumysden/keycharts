@@ -6,9 +6,7 @@ import Chart from '../Chart'
 const CHORDS = [
   {
     name: 'badd9',
-    keys: [
-      ['b','ds','fs','cs']
-    ]
+    keys: ['b','ds','fs','cs']
   }
 ]
 
