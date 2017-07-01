@@ -4,13 +4,7 @@ import styles from './styles.scss';
 import Chart from '../Chart'
 import $ from 'jquery'
 import archieml from 'archieml'
-
-const CHORDS = {
-  'badd9': ['b','ds','fs','cs'],
-  'f#madd9/a': ['fs','as','cs','ds'],
-  'asus2': ['a','b','e'],
-  'e': []
-}
+import { CHORDS } from '../../util/chords'
 
 class Song extends React.Component {
 

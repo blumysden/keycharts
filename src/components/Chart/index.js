@@ -2,13 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.scss';
-
-// const OCTAVE = ['b','as','a','gs','g','fs','f','e','ds','d','cs','c']
-const OCTAVE = ['f','fs','g','gs','a','as','b','c','cs','d','ds','e']
+import { OCTAVE } from '../../util/chords'
 
 class Chart extends React.Component {
 
-  breakAcrossOctaves(notes) {
+  breakAcrossOctaves(notes=[]) {
     return notes.reduce((memo, n, i) => {
       if (i == 0 || OCTAVE.indexOf(n) < OCTAVE.indexOf(notes[i - 1])) {
         memo.push([])
@@ -21,7 +19,7 @@ class Chart extends React.Component {
   renderOctave(notes=[], i, fingerOffset) {
     return <ul className="set" key={ `octave-${i}` }>
       { OCTAVE.map((k) => {
-        let className = `${styles[k]} ${((k.length > 1)) ? styles.black : styles.white }`,
+        let className = `${styles[k.replace('#', 's')]} ${((k.length > 1)) ? styles.black : styles.white }`,
             finger = notes.indexOf(k),
             mark = (finger != -1) ? <span>{ finger + 1 + fingerOffset }</span> : null
 
@@ -33,6 +31,7 @@ class Chart extends React.Component {
   render () {
     let { name, keys } = this.props,
         fingers = 0;
+    console.log(name, keys, this.breakAcrossOctaves(keys));
     return <div className={ styles.octave }>
       <header>{ name }</header>
       { this.breakAcrossOctaves(keys).map((octave, i) => {
