@@ -1,3 +1,21 @@
 @import '../../shared-styles/variables';
 
-.song {}
+.song {
+
+  header {
+    font-size: 2em;
+  }
+
+  .words {
+    pre, code {
+      font-family: georgia;
+      font-size: 1.1em;
+      line-height: 1.2;
+    }
+  }
+
+  .chordname {
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
