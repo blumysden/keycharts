@@ -8,8 +8,8 @@ import App from '../components/App';
 // chunking assets. Check out the following for more:
 // https://webpack.js.org/guides/migrating/#code-splitting-with-es2015
 
-const importChart = (nextState, cb) => {
-  import(/* webpackChunkName: "tools" */'../components/Chart')
+const importSong = (nextState, cb) => {
+  import(/* webpackChunkName: "tools" */'../components/Song')
     .then(module => cb(null, module.default))
     .catch((e) => { throw e; });
 };
@@ -18,8 +18,8 @@ const importChart = (nextState, cb) => {
 // https://github.com/reactjs/react-router/blob/master/docs/guides/DynamicRouting.md
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute getComponent={importChart} />
-    <Route path="chart" getComponent={importChart} />
+    <IndexRoute getComponent={importSong} />
+    <Route path="chart" getComponent={importSong} />
   </Route>
 );
 
@@ -27,7 +27,7 @@ const routes = (
 // routes so we need to require them here as a workaround.
 // https://github.com/gaearon/react-hot-loader/issues/288
 if (module.hot) {
-  require('../components/Chart');   // eslint-disable-line global-require
+  require('../components/Song');   // eslint-disable-line global-require
 }
 
 export default routes;

@@ -23,6 +23,27 @@
     list-style: none;
     position: relative;
     float: left;
+
+    span {
+      position: absolute;
+      bottom: 30px;
+      left: calc(50% - 10px);
+      font-size: 10px;
+      line-height: 20px;
+      width: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    &.white span {
+      background-color: #000;
+      color: #fff;
+    }
+
+    &.black span {
+      background-color: #fff;
+      color: #000;
+    }
   }
 
   ul .white {
@@ -61,8 +82,9 @@
   }
 
   .a,
-  .c,
+  .b,
   .d,
+  .e,
   .f,
   .g {
     margin: 0 0 0 -1em;
