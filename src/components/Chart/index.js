@@ -31,7 +31,6 @@ class Chart extends React.Component {
   render () {
     let { name, keys } = this.props,
         fingers = 0;
-    console.log(name, keys, this.breakAcrossOctaves(keys));
     return <div className={ styles.octave }>
       <header>{ name }</header>
       { this.breakAcrossOctaves(keys).map((octave, i) => {
