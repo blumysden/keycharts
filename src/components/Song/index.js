@@ -48,7 +48,6 @@ class Song extends React.Component {
         current.push(chord)
       }
     }
-    console.log(current);
     this.setState({ visibleCharts: current })
   }
 
