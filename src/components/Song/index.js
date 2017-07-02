@@ -29,38 +29,57 @@ class Song extends React.Component {
   }
 
   toggleChordChart(chord) {
-    let current = this.state.visibleCharts.slice(),
-        nowAt = current.indexOf(chord)
+    let current = [...this.state.visibleCharts]
 
-    if (nowAt != -1) {
-      current.splice(nowAt, 1)
+    if (Array.isArray(chord)) {
+      let chords = [...new Set(chord)]
+      if (current.length == chords.length) {
+        current = []
+      } else {
+        current = chords
+      }
     } else {
-      current.push(chord)
+      chord = chord.trim()
+      let nowAt = current.indexOf(chord)
+
+      if (nowAt != -1) {
+        current.splice(nowAt, 1)
+      } else {
+        current.push(chord)
+      }
     }
     console.log(current);
     this.setState({ visibleCharts: current })
   }
 
-  renderSection({ section, chords, words }, i) {
-    let { visibleCharts } = this.state
+  chartIsVisible(chord) {
+    return this.state.visibleCharts.indexOf(chord.trim()) != -1
+  }
 
-    return <div className="section" key={ `song-section-${i}`}>
-      <header>{ section }</header>
-      <div className="chords">
-        { chords.split(',').map((c) => {
-            return <span className={ styles.chordname } onClick={ () => this.toggleChordChart(c) }>{ c.trim()}</span>
+  renderSection({ section, chords, words }, i) {
+    chords = (chords.split(',') || []).map((c) => c.trim())
+    return <div className={ styles.section } key={ `song-section-${i}`}>
+      <header className={ styles.sectiontitle }>{ section }</header>
+      <div className={ styles.chords }>
+        { chords.map((c) => {
+            let className = styles.chordname
+            if (this.chartIsVisible(c)) {
+              className += ` ${styles.showing}`
+            }
+            return <span className={ className } onClick={ () => this.toggleChordChart(c) }>{ c }</span>
+        }) }
+        <span className={ styles.chordname } onClick={ () => this.toggleChordChart(chords) }>ALL</span>
+      </div>
+      <div className="chords-charts">
+        { [...new Set(chords)].map((c, i) => {
+          if (this.chartIsVisible(c)) {
+            return <Chart name={ c } keys={ CHORDS[c.toLowerCase()] } key={ `song-chord-${i}`} />
+          } else {
+            return null
+          }
         }) }
       </div>
       <div className={ styles.words } dangerouslySetInnerHTML={ {__html: marked(words)}} />
-      <div className="chords-charts">
-        { chords.split(',').map((c, i) => {
-          if (visibleCharts.indexOf(c) == -1) {
-            return null
-          }
-          let chord = c.trim()
-          return <Chart name={ chord } keys={ CHORDS[chord.toLowerCase()] } key={ `song-chord-${i}`} />
-        }) }
-      </div>
     </div>
   }
 
@@ -68,7 +87,7 @@ class Song extends React.Component {
     let { title, song } = this.state
 
     return <div className={ styles.song }>
-      <header>{ title }</header>
+      <header className={ styles.title }>{ title }</header>
       { song.map((section, i) => {
         return this.renderSection(section, i)
       }) }

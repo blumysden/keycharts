@@ -8,6 +8,11 @@ $keymargin: (0-$keywidth/4);
     box-sizing: border-box;
   }
 
+  header {
+    font-size: 1.4em;
+    text-align: left;
+  }
+
   ul {
     display: inline-block;
     // height: 18.875em;

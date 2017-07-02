@@ -2,8 +2,19 @@
 
 .song {
 
-  header {
+  .title {
     font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .sectiontitle {
+    font-size: 1.4em;
+    margin-bottom: 1em;
+  }
+
+  .section {
+    margin-bottom: 2em;
   }
 
   .words {
@@ -14,8 +25,20 @@
     }
   }
 
+  .chords {
+    margin-bottom: 2em;
+  }
+
   .chordname {
     margin-right: 10px;
     display: inline-block;
+    background: #e8e8e8;
+    padding: 5px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &.showing {
+      background: rgb(206, 206, 251);
+    }
   }
 }

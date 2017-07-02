@@ -14,10 +14,11 @@ const allChords = OCTAVE.reduce((memo, n) => {
       fifth = (7 > fromEnd) ? OCTAVE[6 - fromEnd] : OCTAVE[position + 7],
       nine = (2 > fromEnd) ? OCTAVE[1 - fromEnd] : OCTAVE[position + 2]
 
-      console.log(n, position, fromEnd, third, fifth, nine);
   memo[n] = [n, third, fifth]
   memo[n + 'm'] = [n, minorthird, fifth]
   memo[n + 'add9'] = [n, third, fifth, nine]
+  memo[n + '/' + third] = [third, n, fifth]
+  memo[n + '/' + fifth] = [fifth, n, third]
   return memo
 }, {})
 
