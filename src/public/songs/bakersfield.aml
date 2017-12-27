@@ -1,0 +1,38 @@
+title: Bakersfield
+
+[song]
+
+  section: A Section
+  chords: Am, G, F
+  words:
+    well the souvenirs
+    on my dusty shelf
+    well I get out the Tarn-X,
+    and I polish them myself
+    yes, posters are falling,
+    but who needs them at my age?
+    well I've learned to smile,
+    when all I feel is rage
+  :end
+
+  section: B Section
+  chords: Am, G, E, F
+  words:
+    so I think I will go to Bakersfield
+    with Gabriel and Paul
+    and I will hide behind the garbage cans
+    while the holy platitudes fall
+  :end
+
+  section: C Section
+  chords: C
+  words:
+    and blow the gates,
+    I am coming through
+    with my albatrosses and all
+    and it's strategy not protocol
+    yes, it's strategy, not protocol,
+    that brings me here.
+  :end
+
+[]
