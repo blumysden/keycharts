@@ -25,7 +25,18 @@ title: Bakersfield
   :end
 
   section: C Section
-  chords: C
+  chords: C, G, Am, D
+  words:
+    and blow the gates,
+    I am coming through
+    with my albatrosses and all
+    and it's strategy not protocol
+    yes, it's strategy, not protocol,
+    that brings me here.
+  :end
+
+  section: D Section
+  chords: Am, D
   words:
     and blow the gates,
     I am coming through
